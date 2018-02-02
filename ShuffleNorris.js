@@ -29,11 +29,24 @@
 
 //gibt alle gesammelten Jokes in einer nicht zusammenhängenden Wortreihenfolge aus.
 function giveJokesRandomly(){
-  console.log(randomize(jokesToWords()));
+  console.log(randomize(polishedWords()).join('\u0020'));
+}
+
+//entfernt überflüssige "." und "," aus den jokeschnipseln
+function polishedWords(){
+  var arr = jokesToWords();
+
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].split(',');
+    arr[i].split('.');
+
+  }
+  return arr;
 }
 
     function jokesToWords(){
       var akk = [];
+
       akk = jokeArray.join();
       return akk.split('\u0020');
     }
@@ -53,6 +66,5 @@ function giveJokesRandomly(){
         arr[currentIndex] = arr[randIndex];
         arr[randIndex] = tempVal;
       }
-
       return arr;
     }
